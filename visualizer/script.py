@@ -14,8 +14,8 @@ def RunTryOnGenerator(a : str, b : str):
     )
     print(result)
 
-# RunTryOnGenerator("/home/kirsiv40/qtbsu/visualizer/pic/basemodel2.png", "/home/kirsiv40/qtbsu/visualizer/pic/top222.JPG")
 try:
+    # RunTryOnGenerator("/home/kirsiv40/qtbsu/visualizer/pic/basemodel2.png", "/home/kirsiv40/qtbsu/visualizer/pic/top222.JPG")
     RunTryOnGenerator(input(), input())
 except(ValueError):
     print("Bad input files")
