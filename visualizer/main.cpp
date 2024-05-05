@@ -1,3 +1,5 @@
+#include <Python.h>
+
 #include <QThread>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -19,6 +21,10 @@ class LabelWithSignal : public QObject {
     void ShowImage() {
         QString fileName = QFileDialog::getOpenFileName(label->parentWidget(), tr("Open Image"), "/home", tr("Image Files (*.png *.jpg *.bmp)"));
         label->setPixmap(fileName);
+        Py_Initialize();
+        PyRun_SimpleString("print(\"Python is working!!!\")");
+        PyRun_SimpleString("from script import RunTryOnGenerator");
+        Py_Finalize();
     }
 };
 

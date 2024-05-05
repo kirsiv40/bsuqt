@@ -13,14 +13,14 @@ load("@rules_python//python:repositories.bzl", "py_repositories")
 
 py_repositories()
 
-load("@rules_python//python:repositories.bzl", "python_register_toolchains")
+# load("@rules_python//python:repositories.bzl", "python_register_toolchains")
 
-python_register_toolchains(
-    name = "python_3_11",
-    # Available versions are listed in @rules_python//python:versions.bzl.
-    # We recommend using the same version your team is already standardized on.
-    python_version = "3.11",
-)
+# python_register_toolchains(
+#     name = "python_3_11",
+#     # Available versions are listed in @rules_python//python:versions.bzl.
+#     # We recommend using the same version your team is already standardized on.
+#     python_version = "3.11",
+# )
 
 
 http_archive(
@@ -190,3 +190,21 @@ pip_parse(
 load("@pip//:requirements.bzl", "install_deps")
 
 install_deps()
+
+
+new_local_repository(
+    name = "python_linux",
+    path = "local_rep",
+    build_file_content = """
+cc_library(
+    name = "python_in_cpp",
+    srcs = ["libpython3.11.so"],
+    hdrs = glob(["python3.11/*.h",
+                 "python3.11/cpython/*.h",
+                 "python3.11/internal/*.h"]),
+    includes = ["python3.11"],
+    visibility = ["//visibility:public"],
+    copts = ["-std=c++20"],
+)
+    """
+)
