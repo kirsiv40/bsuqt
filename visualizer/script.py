@@ -1,4 +1,5 @@
 import gradio_client
+import sys
 
 def Gen(a : str, b : str):
     client = gradio_client.Client("https://levihsu-ootdiffusion.hf.space/--replicas/sfxdg/")    
@@ -21,9 +22,8 @@ def RunTryOnGenerator():
     except(ValueError):
         print("Bad input files")
 
-import sys
 
-for arg in sys.argv[1:]:
-    print(arg)
+# for arg in sys.argv[1:]:
+#     print(arg)
 
 RunTryOnGenerator()

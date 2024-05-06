@@ -20,16 +20,17 @@ void clean_child(int sig)
 class LabelWithSignal : public QObject {
    public:
     QLabel* label;
+    QLabel* label2;
 
-    LabelWithSignal(QWidget* parent) : label(new QLabel(parent)) {
+    LabelWithSignal(QWidget* parent) : label(new QLabel(parent)), label2(new QLabel(parent)) {
     }
 
    public slots:
     void ShowImage() {
-        QString fileName = QFileDialog::getOpenFileName(label->parentWidget(), tr("Open Image"), "/home", tr("Image Files (*.png *.jpg *.bmp)"));
+        QString fileName = QFileDialog::getOpenFileName(label->parentWidget(), tr("Open Image"), "/home", tr("Image Files (*.png *.jpg *.bmp *.jpeg)"));
         label->setPixmap(fileName);
-        QString fileName2 = QFileDialog::getOpenFileName(label->parentWidget(), tr("Open Image"), "/home", tr("Image Files (*.png *.jpg *.bmp)"));
-        label->setPixmap(fileName2);
+        QString fileName2 = QFileDialog::getOpenFileName(label->parentWidget(), tr("Open Image"), "/home", tr("Image Files (*.png *.jpg *.bmp *.jpeg)"));
+        label2->setPixmap(fileName2);
         if (!fileName.isEmpty() && !fileName2.isEmpty()) {
             pid_t x = fork();
             if (x == 0) {
@@ -57,7 +58,11 @@ public:
 
         label->label->setText(QT_VERSION_STR);
         label->label->setScaledContents(true);
-        label->label->resize(500, 500);
+        label->label->resize(369, 492);
+
+        label->label2->setScaledContents(true);
+        label->label2->resize(200, 200);
+        label->label2->move(168, 500);
 
         but->move(0, 500);
         but->resize(100, 20);
