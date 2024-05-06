@@ -13,7 +13,6 @@ qt_cc_binary(
     deps = [
         "@rules_qt//:qt_core",
         "@rules_qt//:qt_widgets",
-        "@python_linux//:python_in_cpp",
     ],
     data = [":script"],
     copts = ["-std=c++20",],
