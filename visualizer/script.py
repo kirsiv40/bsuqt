@@ -17,7 +17,6 @@ def Gen(a : str, b : str):
 
 def RunTryOnGenerator():
     try:
-        # Gen("/home/kirsiv40/qtbsu/visualizer/pic/basemodel2.png", "/home/kirsiv40/qtbsu/visualizer/pic/top222.JPG")
         Gen(sys.argv[1], sys.argv[2])
     except(ValueError):
         print("Bad input files")

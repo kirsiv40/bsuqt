@@ -1,4 +1,4 @@
-workspace(name = "bsu_cpp")
+workspace(name = "qt_visualizer")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 

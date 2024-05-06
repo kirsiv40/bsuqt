@@ -68,9 +68,6 @@ int main(int argc, char ** argv) {
 
     scr->SetUp();
 
-    // QPixmap pm("/tmp/gradio/854d051a0421e5f39e6969eef1eada8383d03611/image.png");
-    // w->label->label->setPixmap(pm);
-
     scr->show();
 
     return app.exec();
