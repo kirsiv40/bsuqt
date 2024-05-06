@@ -192,19 +192,19 @@ load("@pip//:requirements.bzl", "install_deps")
 install_deps()
 
 
-new_local_repository(
-    name = "python_linux",
-    path = "local_rep",
-    build_file_content = """
-cc_library(
-    name = "python_in_cpp",
-    srcs = ["libpython3.11.so"],
-    hdrs = glob(["python3.11/*.h",
-                 "python3.11/cpython/*.h",
-                 "python3.11/internal/*.h"]),
-    includes = ["python3.11"],
-    visibility = ["//visibility:public"],
-    copts = ["-std=c++20"],
-)
-    """
-)
+# new_local_repository(
+#     name = "python_linux",
+#     path = "local_rep",
+#     build_file_content = """
+# cc_library(
+#     name = "python_in_cpp",
+#     srcs = ["libpython3.11.so"],
+#     hdrs = glob(["python3.11/*.h",
+#                  "python3.11/cpython/*.h",
+#                  "python3.11/internal/*.h"]),
+#     includes = ["python3.11"],
+#     visibility = ["//visibility:public"],
+#     copts = ["-std=c++20"],
+# )
+#     """
+# )

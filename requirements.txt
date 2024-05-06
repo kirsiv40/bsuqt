@@ -1,2 +1,1 @@
-pandas==2.2.2
 gradio_client==0.16.0
