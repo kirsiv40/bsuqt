@@ -1,1 +1,2 @@
 gradio_client==0.16.0
+exceptiongroup==1.2.1

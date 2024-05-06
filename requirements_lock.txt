@@ -13,6 +13,8 @@ certifi==2024.2.2
     #   requests
 charset-normalizer==3.3.2
     # via requests
+exceptiongroup==1.2.1
+    # via -r requirements.txt
 filelock==3.14.0
     # via huggingface-hub
 fsspec==2024.3.1
