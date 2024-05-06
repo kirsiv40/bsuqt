@@ -1,7 +1,7 @@
 load("@rules_qt//:qt.bzl", "qt_cc_binary", "qt_ui_library", "qt_cc_library")
 load("@pip//:requirements.bzl", "requirement")
 
-py_library(
+py_binary(
     name = "script",
     srcs = ["script.py"],
     deps = [requirement("gradio-client")],
@@ -15,6 +15,7 @@ qt_cc_binary(
         "@rules_qt//:qt_widgets",
         "@python_linux//:python_in_cpp",
     ],
+    data = [":script"],
     copts = ["-std=c++20",],
 )
 
