@@ -7,5 +7,6 @@ qt_cc_binary(
         "@rules_qt//:qt_core",
         "@rules_qt//:qt_widgets",
     ],
+    copts = ["-std=c++20"],
 )
 
