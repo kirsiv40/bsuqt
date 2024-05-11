@@ -13,14 +13,17 @@ def Gen(a : str, b : str):
         -1,     # float (numeric value between -1 and 2147483647) in 'Seed' Slider component
         api_name="/process_hd"
     )
-    print(result)
+    return result[0]['image']
 
 
 def RunTryOnGenerator():
-    try:
-        Gen(sys.argv[1], sys.argv[2])
-    except(ValueError):
-        print("Bad input files")
+    with open(sys.argv[3], "w") as f:
+        try:
+            res = Gen(sys.argv[1], sys.argv[2])
+            f.write(res)
+            # sys.argv[2] = 10
+        except(ValueError):
+            print("Bad input files")
 
 
 # for arg in sys.argv[1:]:
